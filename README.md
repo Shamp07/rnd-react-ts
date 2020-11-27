@@ -1,2 +1,2 @@
 # rnd-react-ts
-TypeScript React App without CRA
+CRA를 이용하지 않고, 타입스크립트를 사용하는 리액트 앱을 개발하는 작은 토이 프로젝트입니다.

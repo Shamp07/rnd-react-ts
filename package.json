@@ -1,0 +1,35 @@
+{
+  "name": "rnd-react-ts",
+  "version": "1.0.0",
+  "description": "TypeScript React App without CRA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shamp07/rnd-react-ts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shamp07/rnd-react-ts/issues"
+  },
+  "homepage": "https://github.com/Shamp07/rnd-react-ts#readme",
+  "dependencies": {
+    "html-webpack-plugin": "^5.0.0-alpha.9",
+    "npm": "^6.14.9",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.8.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
