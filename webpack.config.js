@@ -6,14 +6,14 @@ module.exports = {
   entry: "./src/index",
 
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: [".ts", ".tsx", ".js"]
   },
 
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        loader: "babel-loader",
+        test: /\.tsx?$/,
+        loader: "ts-loader",
         exclude: /node_modules/
       }
     ]
@@ -32,6 +32,7 @@ module.exports = {
   ],
 
   devServer: {
+    static: path.join(__dirname, "dist"), // 이 경로에 있는 파일이 변경될 때 번들을 다시 컴파일
     compress: true,
     port: 8080
   },
