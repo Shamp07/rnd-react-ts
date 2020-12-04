@@ -2,7 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import './cssans.min.css';
 
+function sum(a: number, b: number) {
+  return a + b;
+}
+
+// person.ts
+class Person {
+  private name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  sayHello() {
+    return "Hello, " + this.name;
+  }
+}
+
 const App: React.FC = () => {
+  const result = sum(1, 2);
     return (
         <ContentWrapper>
             <ContentHeader>
@@ -28,7 +46,7 @@ const App: React.FC = () => {
             </ContentHeading>
             <MainContentContainer>
                 <MainContentArticle>
-                    안녕하세요
+                    안녕하세요 {result}
                 </MainContentArticle>
             </MainContentContainer>
         </ContentWrapper>
@@ -101,6 +119,5 @@ const MainContentArticle = styled.article`
   border-radius: 3px 3px 0 0;
   background-color: #f4f1ce;
 `;
-
 
 export default App;
