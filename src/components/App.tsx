@@ -2,13 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import './cssans.min.css';
 
-function sum(a: number, b: number) {
-  return a + b;
-}
-
 // person.ts
 class Person {
-  private name: string;
+  protected name: string;
 
   constructor(name: string) {
     this.name = name;
@@ -19,8 +15,27 @@ class Person {
   }
 }
 
+class Student extends Person {
+  study(): string {
+    return `${this.name} is studying.!!`;
+  }
+}
+
+// function sum(a: number, b: number): number {
+//   return a + b;
+// }
+
+const sum = (a: number, b: number): number => {
+  return a + b;
+}
+
 const App: React.FC = () => {
-  const result = sum(1, 2);
+  // const student = new Student('Lee');
+  // console.log(student.sayHello());
+  // console.log(student.study());
+  // console.log(person.name);
+  console.log(sum(2,3));
+
     return (
         <ContentWrapper>
             <ContentHeader>
@@ -46,7 +61,7 @@ const App: React.FC = () => {
             </ContentHeading>
             <MainContentContainer>
                 <MainContentArticle>
-                    안녕하세요 {result}
+                    안녕하세요
                 </MainContentArticle>
             </MainContentContainer>
         </ContentWrapper>
