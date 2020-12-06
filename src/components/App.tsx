@@ -1,41 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import './cssans.min.css';
+import MainContent from './MainContent';
 
-// person.ts
-class Person {
-  protected name: string;
-
-  constructor(name: string) {
-    this.name = name;
-  }
-
-  sayHello() {
-    return "Hello, " + this.name;
-  }
-}
-
-class Student extends Person {
-  study(): string {
-    return `${this.name} is studying.!!`;
-  }
-}
-
-// function sum(a: number, b: number): number {
-//   return a + b;
-// }
-
-const sum = (a: number, b: number): number => {
-  return a + b;
-}
 
 const App: React.FC = () => {
-  // const student = new Student('Lee');
-  // console.log(student.sayHello());
-  // console.log(student.study());
-  // console.log(person.name);
-  console.log(sum(2,3));
-
     return (
         <ContentWrapper>
             <ContentHeader>
@@ -60,9 +29,7 @@ const App: React.FC = () => {
                 <h2>TypeScript의 연습과 개발 환경 구축</h2>
             </ContentHeading>
             <MainContentContainer>
-                <MainContentArticle>
-                    안녕하세요
-                </MainContentArticle>
+                <MainContent />
             </MainContentContainer>
         </ContentWrapper>
     );
@@ -127,12 +94,6 @@ const MainContentContainer = styled.div`
   margin: 0 auto;  
 `;
 
-const MainContentArticle = styled.article`
-  font-size: 1rem;
-  padding: 60px;
-  min-height: 100vh;
-  border-radius: 3px 3px 0 0;
-  background-color: #f4f1ce;
-`;
+
 
 export default App;
