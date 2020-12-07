@@ -16,7 +16,7 @@ const MainContent :React.FC = () => {
   let n: undefined = undefined;
   let n2: null = null;
 
-  if(!n2) { console.log('ㅎㅇ') };
+  if(!n2) { console.log('ㅎㅇ') }
 
   // array
   let list1: any[] = [1, 'two', true];
@@ -37,9 +37,35 @@ const MainContent :React.FC = () => {
   // any: 기존 자바스크립트의 일반적인 변수선언과 비슷한 느낌인듯 싶음.
   let notSure: any = 4;
   notSure = 'maybe a string instead';
-  console.log(notSure);
+  // console.log(notSure);
   notSure = false; // okay, definitely a boolean
-  console.log(notSure);
+  // console.log(notSure);
+
+  // 자바스크립트에서도 Wrapper Class 타입이 존재함.
+  // 이와 프리미티브(원시)형 타입은 별개로 (String, string) 타입은 이와같이 대소문자를 구별한다.
+  let str: String = new String('1');
+  // console.log(String);
+
+  // Date 타입
+  const today: Date = new Date();
+
+// HTMLElement 타입
+  const elem: HTMLElement | null = document.getElementById('myId');
+  console.log(elem);
+
+  class Person { }
+// Person 타입
+  const person: Person = new Person();
+
+
+  // 굳이 타입을 지정하지 않더라도 타입스크립트에서는
+  // 처음 초기화 시 동적으로 타입이 정해지며, 그 이후로는 동적 타이핑이 불가능해진다.
+  // 즉 초기화와 선언을 동시에 하고 동적 타이핑을 사용하려면 무조건 any 타입을 써야하는것.
+  // 하지만 변수 자체만 선언한다면 타입을 지정하지 않아도 any타입으로 자동으로 동작함.
+  // 하지만 위와 같은 경우는 타입스크립트의 장점을 없애는 부분이기 때문에 사용하지 않는 것이 권장된다.
+  let q;
+  q = 'd';
+  q = true;
 
   return (
     <MainContentArticle>
@@ -69,25 +95,6 @@ export default MainContent;
 // 조금 더 문서를 찾아보는게 좋을 듯 싶음.
 function infiniteLoop(): never {
   while(true) {}
-}
-
-// person.ts
-class Person {
-  protected name: string;
-
-  constructor(name: string) {
-    this.name = name;
-  }
-
-  sayHello() {
-    return "Hello, " + this.name;
-  }
-}
-
-class Student extends Person {
-  study(): string {
-    return `${this.name} is studying.!!`;
-  }
 }
 
 // function sum(a: number, b: number): number {
