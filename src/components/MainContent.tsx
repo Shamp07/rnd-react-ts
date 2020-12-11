@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import { classStudy } from "./class";
+import { interfaceStudy } from "./interface";
 
 const MainContent :React.FC = () => {
-  classStudy.study();
+  interfaceStudy.study();
   return (
     <MainContentArticle>
     </MainContentArticle>

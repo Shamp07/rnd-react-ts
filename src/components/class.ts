@@ -19,7 +19,7 @@ export class classStudy {
       }
     }
     const person = new Person('Bae JinYoung');
-    person.walk();
+    // person.walk();
     // =====
 
     // =====
@@ -138,8 +138,41 @@ export class classStudy {
     const woo1 = new Woo();
     const woo2 = new Woo();
 
-    console.log(Woo.instanceCounter);
+    // console.log(Woo.instanceCounter);
     //console.log(woo2.instanceCounter);
     // =====
+
+    // =====
+    // TypeScript 에서는 abstract 라는 키워드를 사용 가능한데, 한글로 직역하면 "추상"이다.
+    // class 선언시 앞의 키워드로 사용되며, 추상클래스에서는 추상메소드를 사용할 수 있다.
+    // 추상메소드란, 메소드 이름과 타입만이 선언된 메소드다.
+    // 이 추상클래스는 바로 인스턴스를 생성할 수 없다.
+    // 추상클래스는 상속을 하기 위한 "틀" 같은 존재이다. 반드시 다른 클래스에서 상속하여 사용해야 한다.
+    // 추상클래스에 선언된 추상메소드는 반드시 추상클래스를 상속한 클래스에서 오버라이딩을 해주어야 한다.
+    // 인터페이스는 추상메소드밖에 사용하지 못하는 반면, 추상클래스는 일반 메소드와 추상메소드 둘다 사용할 수 있다.
+    // =====
+    abstract class Animal {
+      abstract makeSound(): void;
+
+      move(): void {
+        console.log('roaming the earth');
+      }
+    }
+    // =====
+    // new Animal();
+
+    class Dog extends Animal {
+      makeSound(): void {
+        console.log('bowwow~');
+      }
+      move(): void {
+        console.log('over-riding');
+      }
+    }
+
+    const myDog = new Dog();
+    myDog.makeSound();
+    myDog.move();
+
   }
 }
