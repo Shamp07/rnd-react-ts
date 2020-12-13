@@ -81,14 +81,91 @@ export class interfaceStudy {
     }
 
     const todo3 = new TodoImpl(1, 'TypeScript', false);
-    console.log(todo3);
+    // console.log(todo3);
 
     // =====
+    // 아래와 같이 추상메소드가 인터페이스에 정의되어 있는 경우도 예외 없이
+    // 인터페이스를 구현한 클래스에서 메소드를 구현해주어야 한다.
+    // =====
+    interface IPerson {
+      name: string;
+      sayHello(): void;
+    }
+
+    class Person implements IPerson {
+      constructor(public name: string) {}
+
+      sayHello() {
+        console.log(`Hello ${this.name}`);
+      }
+    }
+
+    function greeter(person: IPerson): void {
+      person.sayHello();
+    }
+
+    const me = new Person('Lee');
+    // greeter(me);
+    // =====
 
     // =====
+    // 아래의 예제에서 makeNoise 의 함수를 보면 IDuck 인터페이스의 타입 형태를 파라미터로 받는데,
+    // 아래와 같은 예제에서 RedheadDuck 클래스는 IDuck 인터페이스를 구현하지 않았는데도 오류가 발생하지 않는다.
+    // 실제로 interface 가 가지고 있는 추상메소드나 프로퍼티와 이름이 같은 메소드와 프로퍼티가 존재한다면, 해당 인터페이스를 구현하지 않아도
+    // 인터페이스를 구현한것으로 친다는것이다. 이것을 덕 타이핑또는 구조적 타이핑이라고 한다.
+    // -- 이것을 어디다 쓸지는 감이 안잡힌다...
     // =====
+    interface IDuck {
+      quack(): void;
+    }
+
+    class MallardDuck implements IDuck {
+      quack() {
+        console.log('Quack!');
+      }
+    }
+
+    class RedheadDuck {
+      quack() {
+        console.log('qu~ack!');
+      }
+    }
+
+    function makeNoise(duck: IDuck): void {
+      duck.quack();
+    }
+
+    // makeNoise(new MallardDuck());
+    // makeNoise(new RedheadDuck());
     // =====
 
+    // =====
+    // 추가로 메소드가 아닌 프로퍼티의 경우에도 마찬가지이다.
+    // name 이외에 다른 프로퍼티가 있어도, IPerson2가 가지고 있는 프로퍼티나 추상메소드를
+    // 모두 구현하기만 한다면 부합한다.
+    // =====
+    interface IPerson2 {
+      name: string;
+    }
+
+    function sayHello(person: IPerson2): void {
+      console.log(`Hello ${person.name}`);
+    }
+
+    const me2 = { name: 'Lee', age: 18 };
+    sayHello(me2);
+    // =====
+
+    // =====
+    // interface 는 자바스크립트의 표준이 아닌 단순 개발단계의 도움을 위해 제공되는 기능이다.
+    // 그리하여 위의 예제를 일반 자바스크립트로 트랜스파일링을 하면 인터페이스 자체가 소스상에서 사라진다.
+    // =====
+    // function sayHello(person) {
+    //   console.log("Hello" + person.name);
+    // }
+    // var me = { name: 'Lee', age: 18 };
+    // sayHello(me);
+    // =====
 
 
   }
