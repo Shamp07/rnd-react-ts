@@ -153,7 +153,7 @@ export class interfaceStudy {
     }
 
     const me2 = { name: 'Lee', age: 18 };
-    sayHello(me2);
+    // sayHello(me2);
     // =====
 
     // =====
@@ -167,6 +167,83 @@ export class interfaceStudy {
     // sayHello(me);
     // =====
 
+    // =====
+    // 기본적으로 interface 의 프로퍼티는 반드시 구현되어야 하는데 프로퍼티가 선택적으로 필요한 경우가 있을 수도 있다.
+    // 프로퍼티명 뒤에 ?를 붙히면 선택적 프로퍼티로 설정되며 실제 UserInfo 타입을 구현할때 선택적 프로퍼티는 생략하여도 에러가 발생하지 않는다.
+    // 또한 선택적 프로퍼티는 코드의 가독성을 높혀준다.
+    // =====
+    interface UserInfo {
+      username: string;
+      password: string;
+      age?: number;
+      address?: number;
+    }
 
+    const userInfo: UserInfo = {
+      username: 'blog.shamp@gmail.com',
+      password: '123456'
+    };
+
+    // console.log(userInfo);
+    // =====
+
+    // =====
+    // 인터페이스는 extends 키워드를 사용하여 인터페이스나 클래스를 상속받을 수 있다.
+    // =====
+    interface Person2 {
+      name: string;
+      age?: number;
+    }
+
+    interface Student extends Person2 {
+      grade: number;
+    }
+
+    const student: Student = {
+      name: 'Lee',
+      age: 20,
+      grade: 3
+    };
+    // =====
+
+    // =====
+    // 복수의 인터페이스도 상속이 가능하다.
+    // =====
+    interface Person3 {
+      name: string;
+      age?: number;
+    }
+
+    interface Developer {
+      skills: string[];
+    }
+
+    interface WebDeveloper extends Person3, Developer {}
+
+    const webDeveloper: WebDeveloper = {
+      name: 'Lee',
+      age: 20,
+      skills: ['HTML', 'CSS', 'JavaScript']
+    };
+    // =====
+
+    // =====
+    // 인터페이스는 클래스도 상속을 받을 수 있으며, 접근제한자 종류 모두의 멤버가 상속되지만 구현까지 상속하진 않는다.(?)
+    // 구현까지는 상속하지 않는다는 말이 이해가 안됨. 추가로 찾아볼 필요가 있음.
+    // =====
+    class Person4 {
+      constructor(public name: string, public age: number) {}
+    }
+
+    interface Developer2 extends Person4 {
+      skills: string[];
+    }
+
+    const developer: Developer2 = {
+      name: 'Lee',
+      age: 20,
+      skills: ['HTML', 'CSS', 'JavaScript']
+    };
+    // =====
   }
 }
