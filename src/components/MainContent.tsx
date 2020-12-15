@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import { interfaceStudy } from "./interface";
+import { aliasStudy } from "./alias";
 
 const MainContent :React.FC = () => {
-  interfaceStudy.study();
+  aliasStudy.study();
   return (
     <MainContentArticle>
     </MainContentArticle>
