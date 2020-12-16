@@ -51,7 +51,7 @@ export class aliasStudy {
 
     type Func = (() => string) | (() => void);
 
-    type Shape = Square | Rectangle | Circle;
+    // type Shape = Square | Rectangle | Circle;
 
     type Tuple = [string, boolean];
     // const t: Tuple = ['', '']; // Error

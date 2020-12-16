@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import { aliasStudy } from "./alias";
+import { genericStudy } from "./generic";
 
 const MainContent :React.FC = () => {
-  aliasStudy.study();
+  genericStudy.study();
   return (
     <MainContentArticle>
     </MainContentArticle>

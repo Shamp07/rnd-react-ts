@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import './cssans.min.css';
 import MainContent from './MainContent';
 
-
 const App: React.FC = () => {
     return (
         <ContentWrapper>
